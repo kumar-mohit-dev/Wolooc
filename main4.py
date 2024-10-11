@@ -12,7 +12,7 @@ def loginn():
 	PASSWORDD=pass_entry.get()
 	if USERR==user and PASSWORDD==password:
 		frame.destroy()
-		frameleft.destroy()
+		#frameleft.destroy()
 		open_main_window()
 	else:
 		welcome.configure(text="Invalid",text_color="red")
@@ -21,6 +21,9 @@ def open_main_window():
 	outframe=CTkFrame(window,corner_radius=0,width=600,height=900,
 					fg_color="#D9D9D9")
 	outframe.grid(row=1,column=1)
+	bg_label=CTkLabel(outframe,image=CTkImage(dark_image=bg3,
+					size=(900,600)),text="")
+	bg_label.grid(row=1,column=1)
 	frame=CTkFrame(outframe,corner_radius=15,width=350,height=300,
 					fg_color="white")
 	frame.grid(row=1,column=1)#widgets in main function
@@ -28,23 +31,22 @@ def open_main_window():
 	taser=CTkLabel(frame,text="Taser",fg_color="white")#ss
 	taser.grid(row=1,column=1)
 	
-	bg_label=CTkLabel(outframe,image=CTkImage(dark_image=bg3,
-					size=(900,600)),text="")
-	bg_label.grid(row=1,column=1)
+	
 	
 #creating window
 window = CTk()
 window.title("Wolooc")
 window.geometry("900x600")
-
-frameleft=CTkFrame(window,width=450,height=600,fg_color="black"
-				,corner_radius=0)
-frameleft.grid(row=1,column=1)
-
-frame=CTkFrame(frameleft,corner_radius=15,width=400,height=350,
+bgwoman=Image.open("bgwoman.jpg")
+bgbus=Image.open("bgbus.jpg")
+bg_login1=CTkLabel(window,text="",image=CTkImage(dark_image=bgwoman,size=(900,600)),
+				corner_radius=0)
+bg_login1.grid(row=1,column=1)
+frame=CTkFrame(window,corner_radius=15,width=400,height=350,
 				fg_color="#D9D9D9")
 frame.grid(row=1,column=1,padx=60,pady=125)
-
+bg_login2=CTkLabel(frame,text="",image=CTkImage(dark_image=bgbus,size=(450,600)))
+bg_login2.grid(row=1,column=1)
 #widgets in frame
 welcome=CTkLabel(frame,text="Welcome Back \nLogin Account",
 				text_color="black",font=("",35,"bold"))
